@@ -5,7 +5,9 @@ const AppLayout = () => {
   return (
     <>
       <NavBar />
-      <Outlet />
+      <div className="flex justify-center">
+        <Outlet />
+      </div>
     </>
   );
 };
