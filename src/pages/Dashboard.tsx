@@ -1,8 +1,8 @@
-import { Outlet, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import { useEffect } from "react";
 
-const AppLayout = () => {
+const Dashboard = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -10,17 +10,15 @@ const AppLayout = () => {
       import.meta.env.VITE_AUTH_TOKEN_KEY
     );
 
-    if (isLoggedIn) navigate("/dashboard");
+    if (!isLoggedIn) navigate("/");
   }, []);
 
   return (
     <>
       <NavBar />
-      <div className="flex justify-center">
-        <Outlet />
-      </div>
+      Hello
     </>
   );
 };
 
-export default AppLayout;
+export default Dashboard;

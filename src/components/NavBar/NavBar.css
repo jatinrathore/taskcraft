@@ -6,7 +6,7 @@
 }
 
 .nb-title {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-family: cursive;
   font-weight: 900;
 }
@@ -21,7 +21,7 @@
   font-weight: 600;
   outline: 0;
   padding: 15px 25px;
-  transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.5s ease;
 }
 
 .nb-selected-btn {
