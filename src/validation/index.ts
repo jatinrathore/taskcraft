@@ -19,3 +19,16 @@ export const SignInSchema = z.object({
     .min(8, { message: "Password should be at least 8 characters long" })
     .max(50),
 });
+
+export const CategorySchema = z.object({
+  id: z.string().min(1).max(50),
+  title: z.string().min(3).max(50),
+});
+
+export const TaskSchema = z.object({
+  id: z.string().min(1).max(50),
+  title: z.string().min(3).max(50),
+  description: z.string().min(3).max(500),
+  category: CategorySchema,
+  date: z.string().min(10).max(10),
+});
