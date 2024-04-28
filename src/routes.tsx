@@ -1,21 +1,21 @@
 import { createBrowserRouter } from "react-router-dom";
-import Dashboard from "./pages/Dashboard";
-import SignupPage from "./pages/SignupPage";
-import SigninPage from "./pages/SigninPage";
+import AppLayout from "./pages/AppLayout";
+import SignupForm from "./components/SignupForm";
+import SigninForm from "./components/SigninForm";
+import TaskContainer from "./components/TaskContainer";
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    index: true,
-    element: <SignupPage />,
-  },
-  {
-    path: "/sign-in",
-    element: <SigninPage />,
-  },
-  {
-    path: "/dashboard",
-    element: <Dashboard />,
+    path: "",
+    element: <AppLayout />,
+    children: [
+      { index: true, element: <SignupForm /> },
+      { path: "/sign-in", element: <SigninForm /> },
+      {
+        path: "/dashboard",
+        element: <TaskContainer />,
+      },
+    ],
   },
 ]);
 

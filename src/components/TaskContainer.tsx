@@ -14,8 +14,39 @@ import DeleteCategoryModal from "./DeleteCategoryModal";
 import SearchComponent from "./SearchComponent";
 import SortByDate from "./SortByDate";
 import CreateCategoryModal from "./CreateCategoryModal";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { defaultTasks, defaultCategories } from "../service/defaultData";
 
 const TaskContainer = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const isLoggedIn = !!localStorage.getItem(
+      import.meta.env.VITE_AUTH_TOKEN_KEY
+    );
+
+    if (!isLoggedIn) {
+      navigate("/");
+    } else {
+      // Check if items are already set in localStorage
+      const isItemsSet = localStorage.getItem("itemsSet");
+
+      // If items are not set, set them and mark them as set
+      if (!isItemsSet) {
+        localStorage.setItem(
+          import.meta.env.VITE_LOCAL_STORAGE_TASK,
+          JSON.stringify(defaultTasks)
+        );
+        localStorage.setItem(
+          import.meta.env.VITE_LOCAL_STORAGE_CATEGORY,
+          JSON.stringify(defaultCategories)
+        );
+        localStorage.setItem("itemsSet", "true");
+      }
+    }
+  }, [navigate]);
+
   const categories = useTaskCraftStore((s) => s.categories);
   const tasks = useTaskCraftStore((s) => s.tasks);
   const setTasks = useTaskCraftStore((s) => s.setTasks);
