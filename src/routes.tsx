@@ -6,7 +6,7 @@ import Dashboard from "./pages/Dashboard";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "",
     element: <AppLayout />,
     children: [
       { index: true, element: <SignupForm /> },
