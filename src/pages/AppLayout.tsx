@@ -17,9 +17,7 @@ const AppLayout = () => {
   return (
     <>
       <NavBar />
-      <div className="flex justify-center">
-        <Outlet />
-      </div>
+      <Outlet />
       <GitHubFooter />
     </>
   );
