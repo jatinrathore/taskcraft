@@ -15,7 +15,7 @@ const GitHubFooter = () => {
         </p>
       </div>
       <div className="git-logo">
-        <a href="github.com/jatinrathore/taskcraft" target="_blank">
+        <a href="https://github.com/jatinrathore/taskcraft" target="_blank">
           <FaGithubSquare fontSize={25} />
         </a>
       </div>

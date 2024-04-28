@@ -78,6 +78,7 @@ const TaskContainer = () => {
             collisionDetection={closestCorners}
             onDragEnd={handleDragEnd}
             sensors={sensors}
+            autoScroll
           >
             {categories.map((category) => (
               <CategoryContainer
