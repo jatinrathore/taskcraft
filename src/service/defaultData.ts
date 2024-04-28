@@ -17,6 +17,7 @@ export const defaultTasks: TaskType[] = [
       title: "Work",
     },
     date: defaultTaskDate,
+    isCompleted: false,
   },
   {
     id: "2",
@@ -27,6 +28,7 @@ export const defaultTasks: TaskType[] = [
       title: "Personal",
     },
     date: defaultTaskDate,
+    isCompleted: false,
   },
   {
     id: "3",
@@ -37,6 +39,7 @@ export const defaultTasks: TaskType[] = [
       title: "Health",
     },
     date: defaultTaskDate,
+    isCompleted: false,
   },
   {
     id: "4",
@@ -47,6 +50,7 @@ export const defaultTasks: TaskType[] = [
       title: "Work",
     },
     date: defaultTaskDate,
+    isCompleted: false,
   },
   {
     id: "5",
@@ -57,6 +61,7 @@ export const defaultTasks: TaskType[] = [
       title: "Work",
     },
     date: defaultTaskDate,
+    isCompleted: false,
   },
 ];
 

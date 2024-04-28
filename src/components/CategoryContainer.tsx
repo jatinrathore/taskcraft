@@ -1,7 +1,4 @@
-import {
-  SortableContext,
-  verticalListSortingStrategy,
-} from "@dnd-kit/sortable";
+import { SortableContext } from "@dnd-kit/sortable";
 import useTaskCraftStore from "../store";
 import TaskCard from "./TaskCard";
 
@@ -20,6 +17,8 @@ const CategoryContainer = ({ categoryTitle }: { categoryTitle: string }) => {
     (task) => task.category.title === categoryTitle
   );
 
+  if (filteredTasks.length === 0) return <></>;
+
   return (
     <div className="shadow-md p-2 rounded-md bg-red-300">
       <h2 className="text-2xl font-semibold ">{categoryTitle}</h2>
@@ -32,6 +31,7 @@ const CategoryContainer = ({ categoryTitle }: { categoryTitle: string }) => {
               taskTitle={fltrTask.title}
               taskDescription={fltrTask.description}
               taskDate={fltrTask.date}
+              isCompleted={fltrTask.isCompleted}
             />
           ))}
         </SortableContext>

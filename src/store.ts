@@ -12,19 +12,8 @@ interface TaskCraftStore {
   isSignupActive: boolean;
   setSignupActive: (value: boolean) => void;
   setTasks: (updatedTasks: TaskType[]) => void;
+  setCategories: (updatedCategories: CategoryType[]) => void;
 }
-
-// Setting default tasks in user's browser
-// localStorage.setItem(
-//   import.meta.env.VITE_LOCAL_STORAGE_TASK,
-//   JSON.stringify(defaultTasks)
-// );
-
-// Setting default category in user's browser
-// localStorage.setItem(
-//   import.meta.env.VITE_LOCAL_STORAGE_CATEGORY,
-//   JSON.stringify(defaultCategories)
-// );
 
 const useTaskCraftStore = create<TaskCraftStore>((set) => ({
   tasks: (() => {
@@ -54,6 +43,16 @@ const useTaskCraftStore = create<TaskCraftStore>((set) => ({
     localStorage.setItem(
       import.meta.env.VITE_LOCAL_STORAGE_TASK,
       JSON.stringify(updatedTasks)
+    );
+  },
+  setCategories: (updatedCategories: CategoryType[]) => {
+    // Update categories state
+    set((store) => ({ ...store, categories: updatedCategories }));
+
+    // Update categories in localStorage
+    localStorage.setItem(
+      import.meta.env.VITE_LOCAL_STORAGE_CATEGORY,
+      JSON.stringify(updatedCategories)
     );
   },
 }));

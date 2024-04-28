@@ -31,4 +31,24 @@ export const TaskSchema = z.object({
   description: z.string().min(3).max(500),
   category: CategorySchema,
   date: z.string().min(10).max(10),
+  isCompleted: z.boolean(),
+});
+
+export const TaskFormSchema = z.object({
+  title: z
+    .string()
+    .min(3, { message: "Title should be of 3 character(s)" })
+    .max(50),
+  description: z
+    .string()
+    .min(8, { message: "Description should be of 8 character(s)" })
+    .max(500),
+  category: z.string().refine((value) => !!value, {
+    message: "Category is required",
+    path: ["category"],
+  }),
+  date: z.string().refine((value) => !!value, {
+    message: "Date is required",
+    path: ["date"],
+  }),
 });

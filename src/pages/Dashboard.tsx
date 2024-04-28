@@ -19,17 +19,17 @@ const Dashboard = () => {
       const isItemsSet = localStorage.getItem("itemsSet");
 
       // If items are not set, set them and mark them as set
-      if (!isItemsSet) {
-        localStorage.setItem(
-          import.meta.env.VITE_LOCAL_STORAGE_TASK,
-          JSON.stringify(defaultTasks)
-        );
-        localStorage.setItem(
-          import.meta.env.VITE_LOCAL_STORAGE_CATEGORY,
-          JSON.stringify(defaultCategories)
-        );
-        localStorage.setItem("itemsSet", "true");
-      }
+      // if (!isItemsSet) {
+      localStorage.setItem(
+        import.meta.env.VITE_LOCAL_STORAGE_TASK,
+        JSON.stringify(defaultTasks)
+      );
+      localStorage.setItem(
+        import.meta.env.VITE_LOCAL_STORAGE_CATEGORY,
+        JSON.stringify(defaultCategories)
+      );
+      localStorage.setItem("itemsSet", "true");
+      // }
     }
   }, [navigate]);
 
