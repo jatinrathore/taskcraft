@@ -13,6 +13,7 @@ interface TaskCraftStore {
   setSignupActive: (value: boolean) => void;
   setTasks: (updatedTasks: TaskType[]) => void;
   setCategories: (updatedCategories: CategoryType[]) => void;
+  saveTasks: (updatedTasks: TaskType[]) => void;
 }
 
 const useTaskCraftStore = create<TaskCraftStore>((set) => ({
@@ -54,6 +55,10 @@ const useTaskCraftStore = create<TaskCraftStore>((set) => ({
       import.meta.env.VITE_LOCAL_STORAGE_CATEGORY,
       JSON.stringify(updatedCategories)
     );
+  },
+  saveTasks: (updatedTasks: TaskType[]) => {
+    // Update tasks state
+    set((store) => ({ ...store, tasks: updatedTasks }));
   },
 }));
 

@@ -1,3 +1,5 @@
+import { defaultTasks, TaskType } from "./defaultData";
+
 export const getDateInString = (isModified: Boolean): string => {
   const currentDate = new Date();
   let addition = 0;
@@ -15,7 +17,6 @@ export const getDateInString = (isModified: Boolean): string => {
 };
 
 export function formatDate(dateString: string) {
-  // Split the date string into year, month, and day
   const [year, month, day] = dateString.split("-").map(Number);
 
   // Create a new date object
@@ -26,6 +27,21 @@ export function formatDate(dateString: string) {
   const formattedMonth = date.getMonth() + 1; // Month is zero-based, so add 1
   const formattedYear = date.getFullYear();
 
-  // Return the formatted date string
   return `${formattedDay}/${formattedMonth}/${formattedYear}`;
 }
+
+export const sortTasksAscending = (tasks: TaskType[]): TaskType[] => {
+  return tasks.sort((a: TaskType, b: TaskType) => {
+    const dateA = new Date(a.date.split("/").reverse().join("/"));
+    const dateB = new Date(b.date.split("/").reverse().join("/"));
+    return dateA.getTime() - dateB.getTime(); // Use getTime() to compare dates
+  });
+};
+
+export const sortTasksDescending = (tasks: TaskType[]): TaskType[] => {
+  return tasks.sort((a: TaskType, b: TaskType) => {
+    const dateA = new Date(a.date.split("/").reverse().join("/"));
+    const dateB = new Date(b.date.split("/").reverse().join("/"));
+    return dateB.getTime() - dateA.getTime(); // Use getTime() to compare dates
+  });
+};

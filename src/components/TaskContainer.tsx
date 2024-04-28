@@ -13,6 +13,7 @@ import CreateTaskModal from "./CreateTaskModal";
 import DeleteCategoryModal from "./DeleteCategoryModal";
 import SearchComponent from "./SearchComponent";
 import SortByDate from "./SortByDate";
+import CreateCategoryModal from "./CreateCategoryModal";
 
 const TaskContainer = () => {
   const categories = useTaskCraftStore((s) => s.categories);
@@ -52,8 +53,9 @@ const TaskContainer = () => {
 
   return (
     <div className="p-5 h-screen">
-      <div className="crud-box text-center">
+      <div className="crud-box flex flex-row items-center justify-center">
         <CreateTaskModal />
+        <CreateCategoryModal />
         <SortByDate />
         {categories.length && <DeleteCategoryModal />}
         <SearchComponent />

@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { TaskSchema, CategorySchema } from "../validation";
-import { getDateInString } from "./dateInString";
+import { getDateInString } from "./helper";
 
 export type TaskType = z.infer<typeof TaskSchema>;
 export type CategoryType = z.infer<typeof CategorySchema>;
