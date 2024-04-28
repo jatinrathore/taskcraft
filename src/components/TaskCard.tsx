@@ -49,15 +49,18 @@ const TaskCard = ({
 
   return (
     <div
-      className="bg-slate-200 p-2 flex flex-col md:flex-row justify-between rounded-md touch-none"
+      className="bg-gray-100 p-2 flex flex-col md:flex-row justify-between rounded-md touch-none shadow-md border-2 border-slate-300"
       ref={setNodeRef}
       {...attributes}
       {...listeners}
       style={style}
     >
-      <div className="task-info">
+      <div className="task-info overflow-hidden">
         <div className="title-box flex gap-2 text-lg font-medium">
-          <button className="text-sm" onMouseDown={handleIsTaskComplete}>
+          <button
+            className="text-xs md:text-sm"
+            onMouseDown={handleIsTaskComplete}
+          >
             {isCompleted ? (
               <FaCircleCheck className="text-green-600" />
             ) : (
@@ -67,23 +70,25 @@ const TaskCard = ({
           <p
             className={`task-title ${
               isCompleted ? "line-through" : ""
-            } text-slate-800`}
+            } text-slate-700 text-sm md:text-lg`}
           >
             {taskTitle}
           </p>
         </div>
         <p
-          className={`task-desc ml-10 mt-2 text-sm text-slate-400 ${
+          className={`task-desc mr-0 md:mr-12 lg:mr-20 break-words ml-8 md:ml-10 mt-1 md:mt-2 text-xs md:text-sm text-slate-400 ${
             isCompleted ? "line-through" : ""
           }`}
         >
           {taskDescription}
         </p>
       </div>
-      <div className="task-opt flex flex-row items-center gap-5">
-        <p className="task-date text-sm text-slate-600">{taskDate}</p>
+      <div className="task-opt flex flex-row items-center justify-end md:justify-normal gap-3 md:gap-5 mt-2 md:mt-0">
+        <p className="task-date text-xs md:text-sm text-slate-600">
+          {taskDate}
+        </p>
         <button
-          className="bg-red-100 p-1 rounded-md text-red-600 cursor-pointer"
+          className="bg-red-100 p-1 rounded-md text-red-600 cursor-pointer text-xs md:text-md lg:text-lg"
           onMouseDown={handleDeleteClick}
         >
           <RiDeleteBin5Line />

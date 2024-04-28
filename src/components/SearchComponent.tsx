@@ -30,7 +30,7 @@ const SearchComponent = () => {
       task.title.toLowerCase().includes(searchQuery)
     );
 
-    saveTasks(filteredTasks);
+    if (filteredTasks.length > 0) saveTasks(filteredTasks);
   };
 
   return (

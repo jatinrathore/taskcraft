@@ -1,11 +1,8 @@
 import { z } from "zod";
 import { TaskSchema, CategorySchema } from "../validation";
-import { getDateInString } from "./helper";
 
 export type TaskType = z.infer<typeof TaskSchema>;
 export type CategoryType = z.infer<typeof CategorySchema>;
-
-const defaultTaskDate = getDateInString(true);
 
 export const defaultTasks: TaskType[] = [
   {
@@ -16,8 +13,8 @@ export const defaultTasks: TaskType[] = [
       id: "1",
       title: "Work",
     },
-    date: defaultTaskDate,
-    isCompleted: false,
+    date: "24/5/2024",
+    isCompleted: true,
   },
   {
     id: "2",
@@ -27,7 +24,7 @@ export const defaultTasks: TaskType[] = [
       id: "2",
       title: "Personal",
     },
-    date: defaultTaskDate,
+    date: "10/5/2024",
     isCompleted: false,
   },
   {
@@ -38,7 +35,7 @@ export const defaultTasks: TaskType[] = [
       id: "3",
       title: "Health",
     },
-    date: defaultTaskDate,
+    date: "10/5/2024",
     isCompleted: false,
   },
   {
@@ -49,7 +46,7 @@ export const defaultTasks: TaskType[] = [
       id: "1",
       title: "Work",
     },
-    date: defaultTaskDate,
+    date: "30/4/2024",
     isCompleted: false,
   },
   {
@@ -60,7 +57,7 @@ export const defaultTasks: TaskType[] = [
       id: "1",
       title: "Work",
     },
-    date: defaultTaskDate,
+    date: "12/5/2024",
     isCompleted: false,
   },
 ];

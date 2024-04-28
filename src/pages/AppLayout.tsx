@@ -1,6 +1,7 @@
 import { Outlet, useNavigate } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import { useEffect } from "react";
+import GitHubFooter from "../components/GitHubFooter";
 
 const AppLayout = () => {
   const navigate = useNavigate();
@@ -19,6 +20,7 @@ const AppLayout = () => {
       <div className="flex justify-center">
         <Outlet />
       </div>
+      <GitHubFooter />
     </>
   );
 };

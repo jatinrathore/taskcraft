@@ -21,6 +21,7 @@ const NavBar = () => {
             className={`nb-btn nb-selected-btn`}
             onClick={() => {
               localStorage.removeItem(import.meta.env.VITE_AUTH_TOKEN_KEY);
+              setActive(true);
               toast.success("Logged out successfully!");
               navigate("/");
             }}

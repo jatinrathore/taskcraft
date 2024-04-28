@@ -1,4 +1,4 @@
-import { defaultTasks, TaskType } from "./defaultData";
+import { TaskType } from "./defaultData";
 
 export const getDateInString = (isModified: Boolean): string => {
   const currentDate = new Date();

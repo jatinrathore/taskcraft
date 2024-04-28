@@ -71,7 +71,9 @@ const SignupForm = () => {
         <img src="/assets/Sign-Up-Animation.gif" />
       </div>
       <div className="sp-form-box flex flex-col justify-center items-center">
-        <h2 className="text-3xl font-bold mb-12">Sign up to TaskCraft</h2>
+        <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12">
+          Sign up to TaskCraft
+        </h2>
         <form
           className="flex flex-col w-80 md:w-96 gap-5"
           onSubmit={handleSubmit}
@@ -86,7 +88,7 @@ const SignupForm = () => {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className="appearance-none border-2 border-gray-200 rounded-xl w-full p-4 text-gray-700 leading-tight focus:outline-none focus:border-pink-200 hover:border-pink-200"
+              className="appearance-none border-2 border-gray-200 rounded-xl w-full p-2 md:p-4 text-gray-700 leading-tight focus:outline-none focus:border-pink-200 hover:border-pink-200"
             />
             {errors.name && (
               <p className="text-red-500 text-xs italic mt-1 ml-3">
@@ -103,7 +105,7 @@ const SignupForm = () => {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="appearance-none border-2 border-gray-200 rounded-xl w-full p-4 text-gray-700 leading-tight focus:outline-none focus:border-pink-200 hover:border-pink-200"
+              className="appearance-none border-2 border-gray-200 rounded-xl w-full p-2 md:p-4 text-gray-700 leading-tight focus:outline-none focus:border-pink-200 hover:border-pink-200"
             />
             {errors.email && (
               <p className="text-red-500 text-xs italic mt-1 ml-3">
@@ -120,7 +122,7 @@ const SignupForm = () => {
               name="password"
               value={formData.password}
               onChange={handleChange}
-              className="appearance-none border-2 border-gray-200 rounded-xl w-full p-4 text-gray-700 leading-tight focus:outline-none focus:border-pink-200 hover:border-pink-200"
+              className="appearance-none border-2 border-gray-200 rounded-xl w-full p-2 md:p-4 text-gray-700 leading-tight focus:outline-none focus:border-pink-200 hover:border-pink-200"
             />
             {errors.password && (
               <p className="text-red-500 text-xs italic mt-1 ml-3">
@@ -130,7 +132,7 @@ const SignupForm = () => {
           </div>
           <div className="btn-signup">
             <button
-              className="shadow bg-custom-navy-blue focus:shadow-outline focus:outline-none text-white font-bold p-4 rounded-full w-full mt-5 hover:bg-custom-navy-blue-hover"
+              className="shadow bg-custom-navy-blue focus:shadow-outline focus:outline-none text-white font-bold p-2 md:p-4 rounded-full w-full mt-3 md:mt-5 hover:bg-custom-navy-blue-hover"
               type="submit"
             >
               Create Account

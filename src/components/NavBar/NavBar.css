@@ -33,3 +33,17 @@
 .nb-selected-btn:hover {
   background-color: #0d0c22bd;
 }
+
+@media only screen and (max-width: 600px) {
+  .nb-title {
+    font-size: 1.6rem;
+  }
+  .nb-container {
+    padding: 10px 20px;
+  }
+
+  .nb-btn {
+    font-size: 0.8rem;
+    padding: 8px 18px;
+  }
+}

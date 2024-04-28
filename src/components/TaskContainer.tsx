@@ -52,28 +52,41 @@ const TaskContainer = () => {
   };
 
   return (
-    <div className="p-5 h-screen">
-      <div className="crud-box flex flex-row items-center justify-center">
-        <CreateTaskModal />
-        <CreateCategoryModal />
-        <SortByDate />
-        {categories.length && <DeleteCategoryModal />}
-        <SearchComponent />
+    <div className="p-5 h-auto min-h-screen">
+      <div className="crud-box mb-8 flex flex-col justify-center items-center">
+        <div className="flex flex-col lg:flex-row items-center justify-center mb-6">
+          <div className="mb-3 lg:mb-0">
+            <CreateTaskModal />
+            <CreateCategoryModal />
+          </div>
+          <div>
+            <SortByDate />
+            {categories.length > 0 ? <DeleteCategoryModal /> : ""}
+          </div>
+        </div>
+        <div className="w-full md:w-1/2">
+          <SearchComponent />
+        </div>
       </div>
-      <div className=" flex flex-col gap-5">
-        {/* For Making Tasks Dragable */}
-        <DndContext
-          collisionDetection={closestCorners}
-          onDragEnd={handleDragEnd}
-          sensors={sensors}
-        >
-          {categories.map((category) => (
-            <CategoryContainer
-              key={category.id}
-              categoryTitle={category.title}
-            />
-          ))}
-        </DndContext>
+      <div className="flex flex-col gap-5">
+        {tasks.length === 0 ? (
+          <h2 className="text-center text-xl md:text2xl text-slate-500 font-bold">
+            No tasks found. Create a task now!
+          </h2>
+        ) : (
+          <DndContext
+            collisionDetection={closestCorners}
+            onDragEnd={handleDragEnd}
+            sensors={sensors}
+          >
+            {categories.map((category) => (
+              <CategoryContainer
+                key={category.id}
+                categoryTitle={category.title}
+              />
+            ))}
+          </DndContext>
+        )}
       </div>
     </div>
   );
